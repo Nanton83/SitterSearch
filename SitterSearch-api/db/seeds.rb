@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Sitter.create([
+    { name: 'Bob'},
+    { name: 'Judy'},
+    { name: 'Kim'},
+    { name: 'Suzy'},
+    { name: 'Janet'},
+    { name: 'Krakken'},
+    { name: 'Jorge'}
+])
