@@ -2,15 +2,20 @@ class Sitters {
     constructor(){
         this.sitters = []
         this.adapter = new SittersAdapter()
-        // this.bindEventListers()
+        this.initiBindingsAndEventListers()
         this.fetchAndLoadSitters()
+    }
+
+    initiBindingsAndEventListers(){
+        this.sittersContainer = document.getElementById('sitters-container')
     }
 
     fetchAndLoadSitters(){
         this.adapter
         .getSitters()
         .then(sitters => {
-            sitters.forEach(sitter => this.sitters.push(sitter))
+            sitters.forEach(sitter => this.sitters.push(new Sitter(sitter)))
+            console.log(this.notes)
         })
         .then(() => {
             this.render()
@@ -18,8 +23,6 @@ class Sitters {
     }
 
     render(){
-        const sittersContainer = document.getElementById('sitters-container')
-        sittersContainer.innerHTML = 'my sitters here'
-        console.log('The sitters are', this.sitters)
+        this.sittersContainer.innerHTML = this.sitters.map(sitter => sitter.renderLi()).join('')
     }
 }
