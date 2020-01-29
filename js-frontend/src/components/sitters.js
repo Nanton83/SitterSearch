@@ -7,8 +7,19 @@ class Sitters {
     }
 
     fetchAndLoadSitters(){
-        this.adapter.getSitters().then(sitters => {
-            console.log(sitters)
+        this.adapter
+        .getSitters()
+        .then(sitters => {
+            sitters.forEach(sitter => this.sitters.push(sitter))
         })
+        .then(() => {
+            this.render()
+        })
+    }
+
+    render(){
+        const sittersContainer = document.getElementById('sitters-container')
+        sittersContainer.innerHTML = 'my sitters here'
+        console.log('The sitters are', this.sitters)
     }
 }

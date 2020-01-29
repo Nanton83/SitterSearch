@@ -10,3 +10,5 @@ class SittersAdapter{
         )
     }
 }
+
+// Only job of sitters adapter is to communicate with API
